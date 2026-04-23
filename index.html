@@ -69,7 +69,7 @@ nav {
 .bg-company { margin-bottom:0.9rem; }
 .bg-co-badge { display:inline-flex; align-items:center; gap:0.5rem; border-radius:8px; padding:0.4rem 0.85rem; margin-bottom:0.45rem; }
 .bg-co-name { font-family:'DM Sans',-apple-system,sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:0.04em; }
-.bg-co-sub { font-size:0.65rem; font-weight:400; opacity:0.4; }
+.bg-co-sub { font-size:0.65rem; font-weight:400; opacity:1; }
 .bg-co-role { font-size:0.68rem; color:rgba(255,255,255,0.65); font-family:'DM Mono',monospace; margin-bottom:0.4rem; }
 .bg-co-chips { display:flex; flex-wrap:wrap; gap:0.3rem; }
 .bg-chip { font-size:0.6rem; font-weight:500; padding:0.18rem 0.55rem; border-radius:100px; border:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.45); }
@@ -156,7 +156,15 @@ section { padding:6rem 5rem; }
 .wd-r{background:#ff5f57;} .wd-y{background:#febc2e;} .wd-g{background:#28c840;}
 .frame-url { font-family:'DM Mono','SF Mono','Fira Code','Consolas',monospace; font-size:0.68rem; color:rgba(255,255,255,0.25); margin-left:0.5rem; }
 .dash-iframe-wrap-inner { overflow:hidden; height:660px; }
-.dash-iframe { width:133.4%; height:880px; transform:scale(0.75); transform-origin:top left; border:none; background:#fff; display:block; }
+.dash-iframe { 
+  width:150%; 
+  height:1000px; 
+  transform:scale(0.67); 
+  transform-origin:top left; 
+  border:none; 
+  background:#fff; 
+  display:block; 
+}
 
 /* CUSTOMER GRID */
 .proj-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; background:rgba(13,13,13,0.1); border:1px solid rgba(13,13,13,0.1); border-radius:14px; overflow:hidden; }
@@ -493,7 +501,7 @@ if (sessionStorage.getItem('portfolio_auth') === '1') {
       <div class="bg-company">
         <div class="bg-co-badge" style="background:rgba(248,0,0,0.12);border:1px solid rgba(248,0,0,0.25);">
           <span class="bg-co-name" style="color:#FF4136;">NETSUITE</span>
-          <span class="bg-co-sub" style="color:rgba(255,255,255,0.8);">Solutions-AMO</span>
+          <span class="bg-co-sub" style="color:rgba(255,255,255,0.65);">Solutions-AMO</span>
         </div>
         <div class="bg-co-role">Solution Consultant &middot; 2024&ndash;Present</div>
         <div class="bg-co-chips">
@@ -506,7 +514,7 @@ if (sessionStorage.getItem('portfolio_auth') === '1') {
       <div class="bg-company">
         <div class="bg-co-badge" style="background:rgba(134,188,37,0.1);border:1px solid rgba(134,188,37,0.22);">
           <span class="bg-co-name" style="color:#86BC25;letter-spacing:0.06em;">DELOITTE</span>
-          <span class="bg-co-sub" style="color:rgba(255,255,255,0.8);">Tech Enablement & Business Transformation</span>
+          <span class="bg-co-sub" style="color:rgba(255,255,255,0.65);">Tech Enablement & Business Transformation</span>
         </div>
         <div class="bg-co-role">Consultant &middot; 2021&ndash;2023</div>
         <div class="bg-co-chips">
@@ -519,7 +527,7 @@ if (sessionStorage.getItem('portfolio_auth') === '1') {
       <div class="bg-company">
         <div class="bg-co-badge" style="background:rgba(248,0,0,0.08);border:1px solid rgba(248,0,0,0.18);">
           <span class="bg-co-name" style="color:#FF6B6B;">ORACLE</span>
-          <span class="bg-co-sub" style="color:rgba(255,255,255,0.8);">Applications Consulting</span>
+          <span class="bg-co-sub" style="color:rgba(255,255,255,0.65);">Applications Consulting</span>
         </div>
         <div class="bg-co-role">Sr. Cloud Analyst &middot; 2019&ndash;2021</div>
         <div class="bg-co-chips">
@@ -682,7 +690,7 @@ if (sessionStorage.getItem('portfolio_auth') === '1') {
       <div style="flex:1;">
         <div class="dc-label">Contract Asset/Liability &amp; Progress Billing &middot; 15 Contracts</div>
         <div class="dc-desc">
-          GAAP-compliant revenue recognition dashboard &mdash; 15 contracts across 4 subsidiaries,
+          Subscription/Contract business model financial dashboard - visibility to assess performance & compliance &mdash; 15 contracts across 4 subsidiaries,
           filterable by subsidiary or active status. Tracks earned vs invoiced, unbilled
           contract assets, over-billing liabilities, retainage, and change orders.
           Bar chart by subsidiary + health status badges per contract.
