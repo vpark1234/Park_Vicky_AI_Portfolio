@@ -1079,8 +1079,8 @@
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
             <button onClick={() => setView('dashboard')} style={{ padding: '0.75rem 1.5rem', background: COLORS.white, color: COLORS.navy500, border: `2px solid ${COLORS.navy500}`, borderRadius: '6px', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>Cancel</button>
-            <button onClick={() => setShowReportPreview(true)} disabled={selectedComponents.length === 0}
-              style={{ padding: '0.75rem 2rem', background: selectedComponents.length > 0 ? COLORS.navy500 : COLORS.navy100, color: COLORS.white, border: 'none', borderRadius: '6px', fontWeight: 600, cursor: selectedComponents.length > 0 ? 'pointer' : 'not-allowed', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'inherit' }}>
+            <button onClick={() => setShowReportPreview(true)}
+              style={{ padding: '0.75rem 2rem', background: COLORS.navy500, color: COLORS.white, border: 'none', borderRadius: '6px', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'inherit' }}>
               <Eye size={18} /> Preview Report
             </button>
           </div>
