@@ -1473,6 +1473,23 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.fi').forEach(el => obs.observe(el));
 
+// Contain scroll inside dashboard frames — prevents the page from scrolling
+// when the user wheels inside an iframe that has reached its scroll boundary.
+document.querySelectorAll('.dash-iframe').forEach(function(iframe) {
+  function injectContain() {
+    try {
+      var doc = iframe.contentDocument || iframe.contentWindow.document;
+      if (!doc || doc.readyState === 'loading') return;
+      var s = doc.createElement('style');
+      s.textContent = 'html,body{overscroll-behavior:contain;}';
+      doc.head.appendChild(s);
+    } catch(e) {}
+  }
+  iframe.addEventListener('load', injectContain);
+  // Also try immediately in case the iframe already loaded
+  injectContain();
+});
+
 function switchDash(id) {
   ['cgf','inv','efh','cab','pm','ap2','fcc'].forEach(d => {
     document.getElementById('tab-' + d).classList.toggle('active', d === id);
