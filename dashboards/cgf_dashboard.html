@@ -700,7 +700,7 @@
 
           {showDeckPreview && (
             <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10000, padding: '2rem' }} onClick={() => setShowDeckPreview(false)}>
-              <div style={{ background: COLORS.white, borderRadius: '12px', maxWidth: '900px', width: '100%', maxHeight: '90vh', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.5)' }} onClick={e => e.stopPropagation()}>
+              <div style={{ background: COLORS.white, borderRadius: '12px', maxWidth: '900px', width: '100%', height: '88vh', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.5)' }} onClick={e => e.stopPropagation()}>
                 <div style={{ background: `linear-gradient(135deg, ${COLORS.orange500} 0%, ${COLORS.red500} 100%)`, color: COLORS.white, padding: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTopLeftRadius: '12px', borderTopRightRadius: '12px' }}>
                   <div>
                     <h3 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 600 }}>🎯 Deck Preview</h3>
@@ -1087,7 +1087,7 @@
 
           {showReportPreview && (
             <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10000, padding: '2rem' }} onClick={() => setShowReportPreview(false)}>
-              <div style={{ background: COLORS.white, borderRadius: '12px', maxWidth: '950px', width: '100%', maxHeight: '90vh', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.5)' }} onClick={e => e.stopPropagation()}>
+              <div style={{ background: COLORS.white, borderRadius: '12px', maxWidth: '950px', width: '100%', height: '88vh', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.5)' }} onClick={e => e.stopPropagation()}>
                 <div style={{ background: `linear-gradient(135deg, ${COLORS.navy500} 0%, ${COLORS.purple500} 100%)`, color: COLORS.white, padding: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTopLeftRadius: '12px', borderTopRightRadius: '12px', flexShrink: 0 }}>
                   <div>
                     <h3 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 600 }}>📄 PDF Report Preview</h3>
@@ -1166,7 +1166,7 @@
                               <span>Reach: <strong>{Math.round(p.scores.reach)}</strong></span>
                             </div>
                             <div style={{ fontSize: '0.75rem', color: COLORS.navy700, marginTop: '0.25rem' }}>
-                              Cost/child: <strong>${p.fy25.costPerChild.toLocaleString()}</strong>
+                              Cost/unit: <strong>${(p.fy25.costPerChild || p.fy25.costPerAdvocate || 0).toLocaleString()}</strong>
                             </div>
                             <div style={{ marginTop: '0.5rem', fontSize: '0.75rem' }}>
                               Composite: <span style={{ padding: '0.15rem 0.4rem', background: getScoreColor(p.scores.composite), color: COLORS.white, borderRadius: '3px', fontWeight: 700 }}>{p.scores.composite}</span>
@@ -1218,8 +1218,8 @@
                                   <td style={{ padding: '0.75rem', textAlign: 'right' }}>{p.fy24.childrenServed}</td>
                                   <td style={{ padding: '0.75rem', textAlign: 'right', fontWeight: 600 }}>{p.fy25.childrenServed}</td>
                                   <td style={{ padding: '0.75rem', textAlign: 'right', fontWeight: 600, color: growth >= 0 ? COLORS.green700 : COLORS.red500 }}>{growth >= 0 ? '+' : ''}{growth}%</td>
-                                  <td style={{ padding: '0.75rem', textAlign: 'right' }}>${p.fy24.costPerChild}</td>
-                                  <td style={{ padding: '0.75rem', textAlign: 'right', fontWeight: 600, color: p.fy25.costPerChild > p.fy24.costPerChild ? COLORS.red500 : COLORS.green700 }}>${p.fy25.costPerChild}</td>
+                                  <td style={{ padding: '0.75rem', textAlign: 'right' }}>${p.fy24.costPerChild || p.fy24.costPerAdvocate || '—'}</td>
+                                  <td style={{ padding: '0.75rem', textAlign: 'right', fontWeight: 600, color: (p.fy25.costPerChild || p.fy25.costPerAdvocate || 0) > (p.fy24.costPerChild || p.fy24.costPerAdvocate || 0) ? COLORS.red500 : COLORS.green700 }}>${p.fy25.costPerChild || p.fy25.costPerAdvocate || '—'}</td>
                                 </tr>
                               );
                             })}
@@ -1275,7 +1275,7 @@
                     </div>
                   </div>
                 </div>
-                <div style={{ position: 'sticky', bottom: 0, background: COLORS.white, borderTop: `3px solid ${COLORS.navy500}`, padding: '1.5rem', display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+                <div style={{ flexShrink: 0, background: COLORS.white, borderTop: `3px solid ${COLORS.navy500}`, padding: '1.5rem', display: 'flex', gap: '1rem', justifyContent: 'flex-end', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px' }}>
                   <button onClick={() => setShowReportPreview(false)} style={{ padding: '0.75rem 1.5rem', background: COLORS.white, color: COLORS.navy500, border: `2px solid ${COLORS.navy500}`, borderRadius: '6px', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>Close Preview</button>
                   <button onClick={() => { setShowReportPreview(false); setView('email'); }}
                     style={{ padding: '0.75rem 2rem', background: COLORS.navy500, color: COLORS.white, border: 'none', borderRadius: '6px', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'inherit' }}>
